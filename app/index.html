@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: checklist, roadmap to the platinum, missable flags and cited guides.">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<noscript><p style="padding:16px 28px">This trophy guide needs JavaScript: the checklist, saved progress and filters all run in your browser, offline, with no network requests.</p></noscript>
+<header class="hero">
+  <div class="hero-sun" aria-hidden="true"></div>
+  <div class="hero-text">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide</p>
+    <h1>Sunset Platinum</h1>
+    <p class="tagline">Every one of the 55 trophies, a tracker that remembers, and a road to the platinum — built from the official trophy list.</p>
+    <p class="counts" id="counts">55 trophies &middot; 1 platinum &middot; 2 gold &middot; 6 silver &middot; 46 bronze</p>
+  </div>
+  <div class="progress-card" id="progressCard" aria-label="Overall progress">
+    <div class="big-number"><span id="earnedCount">0</span><span class="of">/ 55</span></div>
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+    <p id="progressText">0% to the platinum</p>
+    <p class="grade-line" id="gradeLine">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button type="button" data-view="checklist" class="tab active" aria-current="page">Checklist <kbd>1</kbd></button>
+  <button type="button" data-view="roadmap" class="tab">Roadmap <kbd>2</kbd></button>
+  <button type="button" data-view="missables" class="tab">Missables <kbd>3</kbd></button>
+  <button type="button" data-view="planner" class="tab">Next up <kbd>4</kbd></button>
+</nav>
+
+<section class="toolbar" aria-label="Filters and tools">
+  <label class="search">Search <input id="search" type="search" placeholder="Trophy name or description…" autocomplete="off"></label>
+  <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+    <button type="button" data-kind="all" class="chip active">All 55</button>
+    <button type="button" data-kind="story" class="chip">Story</button>
+    <button type="button" data-kind="missable" class="chip">Missable</button>
+    <button type="button" data-kind="collectible" class="chip">Collectibles</button>
+    <button type="button" data-kind="activity" class="chip">Activities</button>
+    <button type="button" data-kind="side" class="chip">Side missions</button>
+    <button type="button" data-kind="online" class="chip">Online</button>
+  </div>
+  <label>Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Status
+    <select id="statusFilter">
+      <option value="all">All</option>
+      <option value="remaining">Still to earn</option>
+      <option value="earned">Earned</option>
+    </select>
+  </label>
+  <label class="spoiler-toggle"><input id="spoilerToggle" type="checkbox"> Hide story spoilers</label>
+  <button id="exportBtn" type="button">Export progress</button>
+  <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+</section>
+
+<p class="online-note" id="onlineNote" hidden>This list has no online trophies — every one of the 55 can be earned offline, in single player.</p>
+
+<main class="layout">
+  <section class="list-pane" aria-label="Trophy list">
+    <p class="list-meta" id="listMeta"></p>
+    <ul class="trophy-list" id="trophyList"></ul>
+    <p class="empty" id="emptyState" hidden>No trophies match these filters. Try clearing the search or choosing another kind.</p>
+  </section>
+
+  <aside class="detail-pane" id="detailPane" aria-label="Selected trophy guide">
+    <p class="detail-hint">Select a trophy to read its guide, sources and progress counter.</p>
+  </aside>
+</main>
+
+<section class="panel" id="roadmapPanel" hidden aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum</h2>
+  <p class="panel-intro">Five stages, in the order to play them. Each stage lists its trophies and your progress in it — built from the official descriptions, not from a walkthrough.</p>
+  <div id="roadmapStages"></div>
+</section>
+
+<section class="panel" id="missablesPanel" hidden aria-label="Missable trophies">
+  <h2>Missable trophies — read this before you play</h2>
+  <p class="panel-intro">Seven trophies are tied to a one-off moment or a choice. Miss the moment and you may need a new playthrough or an earlier save. Keep a manual save before story missions, and check this list as you go.</p>
+  <div id="missablesList"></div>
+</section>
+
+<section class="panel" id="plannerPanel" hidden aria-label="Next up planner">
+  <h2>Next up</h2>
+  <p class="panel-intro">Your next trophy by roadmap order, then the five after it. Counters below show the long grinds — log your counts as you play and the planner moves on.</p>
+  <div id="plannerNext"></div>
+  <h3>Long grinds — progress counters</h3>
+  <div id="plannerCounters"></div>
+</section>
+
+<footer>
+  <p>Names, descriptions and grades are the official PlayStation 5 list, as published on <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase</a> and <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles</a>. Guides are written for this entry, in our own words, from those descriptions. Where the official description does not pin down a place or step, the guide says so — nothing here is copied from another guide. No Rockstar artwork is used. Progress is saved in your browser (localStorage) and never leaves your machine unless you export it.</p>
+  <p class="keys">Keyboard: <kbd>1</kbd>–<kbd>4</kbd> switch sections &middot; <kbd>/</kbd> search &middot; <kbd>e</kbd> export &middot; <kbd>s</kbd> spoiler setting.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

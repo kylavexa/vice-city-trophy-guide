@@ -1,0 +1,4 @@
+# Build output of `node main.ts` (regenerated, never committed).
+out/
+# Local screenshots scratch (raw PNGs before JPEG conversion).
+/tmp-shots/
